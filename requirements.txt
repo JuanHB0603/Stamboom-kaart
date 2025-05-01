@@ -1,0 +1,8 @@
+dash
+pandas
+openpyxl
+folium
+geopy
+gunicorn
+flask
+numpy

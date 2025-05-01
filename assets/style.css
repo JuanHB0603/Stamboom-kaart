@@ -1,0 +1,240 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Algemene stijl */
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    color: #121b25;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h3 {
+    color: #121b25;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Lijst met personen */
+.personen-lijst {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+
+/* Persoon knop */
+.knop {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border: 2px;
+    border-radius: 20px;
+    width: 15%;
+    background-color: #0b91a3;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.button-hover {
+    background-color: #b3dafe;
+}
+
+/* Layout container */
+.app-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;  /* vul het hele scherm */
+    overflow: hidden;
+}
+
+/* 🗺️ Kaart op de achtergrond */
+.map-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+/* iframe vult de wrapper */
+iframe#map {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* 👥 Toggle button */
+.toggle-button { 
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #0b91a3;
+    color: white;
+    border: 5px;
+    z-index: 1100;
+}
+
+/* ℹ️ Info paneel onderaan */
+.info-panel {
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    width: 80%;
+    transform: translateX(-50%);
+    height: 50%; /* vaste hoogte voor testen, of gebruik max-height */
+    background-color: rgba(255, 255, 255, 0.47);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    padding: 1px;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
+    border-radius: 12px 12px 12px 12px; /* afgeronde hoek links */
+}
+
+.info-panel.hidden {
+    transform: translateY(120%);
+}
+
+.info-panel.visible {
+    transform: translateY(0%);
+}
+
+.slider-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%); 
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 5px;
+    border-radius: 12px;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    width: 80%;
+}
+
+details {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+summary {
+    font-size: 14px;
+    color: #121b25;
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* 📱 Mobiel */
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 83%;
+        right: 11%;
+        height: 40%;
+        top: 20%;
+    }
+
+    .map-wrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .toggle-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        z-index: 1100;
+        border-radius: 25px 25px 25px 25px;
+        background-color: #0b91a3;
+        color: white;
+        font-weight: bold;
+    }
+
+    .slider-container {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%); 
+        background-color: white;
+        padding: 10px;
+        border-radius: 12px;
+        z-index: 1001;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        width: 80%;
+    }
+
+    .info-panel {   
+        position: absolute;
+        bottom: 2%;
+        width: 80%;
+        height: 65%; /* vaste hoogte voor testen, of gebruik max-height */
+        background-color: rgba(255, 255, 255, 0.47);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        padding: 5px;
+        overflow-y: auto;
+        transition: transform 0.3s ease-in-out;
+        z-index: 1001;
+        border-radius: 12px 12px 12px 12px; /* afgeronde hoek links */
+        align-self: center;
+    }
+
+    .knop {
+        font-size: 12px;
+        font-weight: bold;
+        padding: 7px;
+        margin-bottom: 3px;
+        margin-top: 3px;
+        margin-left: 3px;
+        margin-right: 3px;
+        border: 2px;
+        border-radius: 20px;
+        width: 90px;
+        background-color: #0b91a3;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+}
